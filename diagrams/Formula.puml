@@ -1,0 +1,68 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Visitable {
+    + accept(visitor: Visitor)
+}
+
+interface Visitor {
+    + visit(constant: Constant)
+    + visit(variable: Variable)
+    + visit(unary: UnaryOperation)
+    + visit(binary: BinaryOperation)
+}
+interface Symbol extends Visitable {
+    + accept(visitor: Visitor)
+}
+
+class Constant implements Symbol {
+    - value: double
+    + accept(visitor: Visitor)
+}
+
+interface UnaryOperation extends Symbol {
+    + accept(visitor: Visitor)
+}
+
+class Sqrt implements UnaryOperation {
+    + accept(visitor: Visitor)
+}
+
+class Pow implements UnaryOperation {
+    + accept(visitor: Visitor)
+}
+
+class Module implements UnaryOperation {
+    + accept(visitor: Visitor)
+}
+
+interface BinaryOperation extends Symbol {
+    + accept(visitor: Visitor)
+}
+
+class Sum implements BinaryOperation
+class Difference implements BinaryOperation
+class Product implements BinaryOperation
+class Division implements BinaryOperation
+
+class Variable implements Symbol {
+    - name: String
+    + accept(visitor: Visitor)
+}
+
+interface Function extends Visitable {
+    + getAllVariables(): List<String>
+    + accept(visitor: Visitor)
+}
+
+class Solver implements Visitor {
+    + visit(constant: Constant)
+        + visit(variable: Variable)
+        + visit(unary: UnaryOperation)
+        + visit(binary: BinaryOperation)
+}
+
+Function *--> Symbol
+Visitable -> Visitor
+
+@enduml
