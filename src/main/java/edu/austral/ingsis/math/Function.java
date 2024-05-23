@@ -5,5 +5,6 @@ import java.util.Map;
 
 public interface Function extends Visitable {
     List<String> getAllVariables();
+    Double compute();
     Double computeWithValues(Map<String, Double> values);
 }

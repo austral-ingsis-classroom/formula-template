@@ -68,7 +68,8 @@ public class PrintTest {
                     new Division(
                             new Constant(27),
                             new Constant(6)
-                    )
+                    ),
+                    new Constant(2)
             )
     );
 

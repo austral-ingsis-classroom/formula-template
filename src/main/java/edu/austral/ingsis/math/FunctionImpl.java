@@ -1,12 +1,13 @@
 package edu.austral.ingsis.math;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 public class FunctionImpl implements Function {
     private Symbol root;
 
-    FunctionImpl(Symbol root) {
+    public FunctionImpl(Symbol root) {
         this.root = root;
     }
 
@@ -16,12 +17,17 @@ public class FunctionImpl implements Function {
     }
 
     @Override
+    public Double compute() {
+        return computeWithValues(Collections.emptyMap());
+    }
+
+    @Override
     public Double computeWithValues(Map<String, Double> values) {
         return root.computeWithValues(values);
     }
 
     @Override
     public void accept(Visitor visitor) {
-        visitor.accept
+
     }
 }

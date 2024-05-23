@@ -3,16 +3,13 @@ package edu.austral.ingsis.math;
 import java.util.Map;
 
 //TODO: could make it receive any power
-public class Power implements UnaryOperation {
-    final private Symbol subSymbol;
+public class Power implements BinaryOperation {
+    final private Symbol first;
+    final private Symbol second;
 
-    public Power(Symbol subSymbol) {
-        this.subSymbol = subSymbol;
-    }
-
-    @Override
-    public Symbol getSubSymbol() {
-        return subSymbol;
+    public Power(Symbol first, Symbol second) {
+        this.first = first;
+        this.second = second;
     }
 
     @Override
@@ -22,6 +19,19 @@ public class Power implements UnaryOperation {
 
     @Override
     public Double computeWithValues(Map<String, Double> values) {
-        return Math.pow(subSymbol.computeWithValues(values), 2);
+        return Math.pow(
+                first.computeWithValues(values),
+                second.computeWithValues(values)
+        );
+    }
+
+    @Override
+    public Symbol getFirst() {
+        return null;
+    }
+
+    @Override
+    public Symbol getSecond() {
+        return null;
     }
 }
