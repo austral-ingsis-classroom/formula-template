@@ -13,7 +13,9 @@ public class FunctionImpl implements Function {
 
     @Override
     public List<String> getAllVariables() {
-        return List.of();
+        final VariableFinder varFinder = new VariableFinder();
+        this.accept(varFinder);
+        return varFinder.getResult();
     }
 
     @Override

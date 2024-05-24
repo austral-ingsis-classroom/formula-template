@@ -1,10 +1,11 @@
 package edu.austral.ingsis.math;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class VariableFinder implements Visitor {
-    List<String> result = Collections.emptyList();
+    List<String> result = new ArrayList<>();
 
     public List<String> getResult() {
         return result;
@@ -62,6 +63,6 @@ public class VariableFinder implements Visitor {
 
     @Override
     public void visit(Function function) {
-        function.accept(this);
+        function.getRootSymbol().accept(this);
     }
 }
