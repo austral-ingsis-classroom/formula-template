@@ -42,7 +42,7 @@ public class ResolutionTest {
                             new Constant(9),
                             new Constant(2)
                     ),
-                    new Constant(6)
+                    new Constant(3)
             )
     );
 

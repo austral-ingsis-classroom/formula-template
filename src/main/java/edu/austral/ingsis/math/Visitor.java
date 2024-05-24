@@ -10,4 +10,5 @@ public interface Visitor {
     void visit(Module mod);
     void visit(Power pow);
     void visit(Sqrt sqrt);
+    void visit(Function function);
 }

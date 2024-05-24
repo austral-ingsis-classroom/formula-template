@@ -27,11 +27,11 @@ public class Power implements BinaryOperation {
 
     @Override
     public Symbol getFirst() {
-        return null;
+        return first;
     }
 
     @Override
     public Symbol getSecond() {
-        return null;
+        return second;
     }
 }

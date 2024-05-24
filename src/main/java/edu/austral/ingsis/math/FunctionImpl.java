@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class FunctionImpl implements Function {
-    private Symbol root;
+    private final Symbol root;
 
     public FunctionImpl(Symbol root) {
         this.root = root;
@@ -27,7 +27,12 @@ public class FunctionImpl implements Function {
     }
 
     @Override
-    public void accept(Visitor visitor) {
+    public Visitable getRootSymbol() {
+        return root;
+    }
 
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 }
