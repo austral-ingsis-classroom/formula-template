@@ -18,15 +18,9 @@ public class ListVariablesTest {
             new Constant(6)
     ));
 
-    final List<String> result = getResult(function);
+    final List<String> result = function.getAllVariables();
 
     assertThat(result, empty());
-  }
-
-  private List<String> getResult(Function function) {
-    VariableFinder varFinder = new VariableFinder();
-    function.accept(varFinder);
-    return varFinder.getResult();
   }
 
   /** Case 12 / div */
@@ -38,7 +32,7 @@ public class ListVariablesTest {
                     new Variable("div")
             )
     );
-    final List<String> result = getResult(function);
+    final List<String> result = function.getAllVariables();
 
     assertThat(result, containsInAnyOrder("div"));
   }
@@ -55,7 +49,7 @@ public class ListVariablesTest {
                     new Variable("y")
             )
     );
-    final List<String> result = getResult(function);
+    final List<String> result = function.getAllVariables();
 
     assertThat(result, containsInAnyOrder("x", "y"));
   }
@@ -72,7 +66,7 @@ public class ListVariablesTest {
                     new Variable("b")
             )
     );
-    final List<String> result = getResult(function);
+    final List<String> result = function.getAllVariables();
 
     assertThat(result, containsInAnyOrder("a", "b"));
   }
@@ -83,7 +77,7 @@ public class ListVariablesTest {
     final Function function = new FunctionImpl(
             new Sqrt(new Variable("z"))
     );
-    final List<String> result = getResult(function);
+    final List<String> result = function.getAllVariables();
 
     assertThat(result, containsInAnyOrder("z"));
   }
@@ -97,7 +91,7 @@ public class ListVariablesTest {
                     new Constant(8)
             )
     );
-    final List<String> result = getResult(function);
+    final List<String> result = function.getAllVariables();
 
     assertThat(result, containsInAnyOrder("value"));
   }
@@ -111,7 +105,7 @@ public class ListVariablesTest {
                     new Constant(8)
             )
     );
-    final List<String> result = getResult(function);
+    final List<String> result = function.getAllVariables();
 
     assertThat(result, containsInAnyOrder("value"));
   }
@@ -128,7 +122,7 @@ public class ListVariablesTest {
                     new Constant(8)
             )
     );
-    final List<String> result = getResult(function);
+    final List<String> result = function.getAllVariables();
 
     assertThat(result, containsInAnyOrder("i"));
   }
