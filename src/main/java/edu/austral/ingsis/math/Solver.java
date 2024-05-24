@@ -1,8 +1,8 @@
-//package edu.austral.ingsis.math;
+// package edu.austral.ingsis.math;
 //
-//import java.util.Map;
+// import java.util.Map;
 //
-//public class Solver implements Visitor {
+// public class Solver implements Visitor {
 //    private Map<String, Double> variables;
 //
 //    @Override
@@ -24,4 +24,4 @@
 //    public Double visit(BinaryOperation binary) {
 //        return 0.0;
 //    }
-//}
+// }

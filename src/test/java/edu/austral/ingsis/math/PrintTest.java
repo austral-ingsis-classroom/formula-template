@@ -1,9 +1,9 @@
 package edu.austral.ingsis.math;
 
-import org.junit.jupiter.api.Test;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 public class PrintTest {
 
@@ -11,10 +11,7 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction1() {
     final String expected = "1 + 6";
-    final Function function = new FunctionImpl(new Sum(
-            new Constant(1),
-            new Constant(6)
-    ));
+    final Function function = new FunctionImpl(new Sum(new Constant(1), new Constant(6)));
     final String result = getResult(function);
 
     assertThat(result, equalTo(expected));
@@ -30,10 +27,7 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction2() {
     final String expected = "12 / 2";
-    final Function function = new FunctionImpl(new Division(
-            new Constant(12),
-            new Constant(2)
-    ));
+    final Function function = new FunctionImpl(new Division(new Constant(12), new Constant(2)));
 
     final String result = getResult(function);
 
@@ -44,15 +38,9 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction3() {
     final String expected = "(9 / 2) * 3";
-    final Function function = new FunctionImpl(
-            new Product(
-                    new Division(
-                            new Constant(9),
-                            new Constant(2)
-                    ),
-                    new Constant(3)
-            )
-    );
+    final Function function =
+        new FunctionImpl(
+            new Product(new Division(new Constant(9), new Constant(2)), new Constant(3)));
 
     final String result = getResult(function);
 
@@ -63,15 +51,9 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction4() {
     final String expected = "(27 / 6) ^ 2";
-    final Function function = new FunctionImpl(
-            new Power(
-                    new Division(
-                            new Constant(27),
-                            new Constant(6)
-                    ),
-                    new Constant(2)
-            )
-    );
+    final Function function =
+        new FunctionImpl(
+            new Power(new Division(new Constant(27), new Constant(6)), new Constant(2)));
 
     final String result = getResult(function);
 
@@ -82,10 +64,8 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction6() {
     final String expected = "|value| - 8";
-    final Function function = new FunctionImpl(new Difference(
-            new Module(new Variable("value")),
-            new Constant(8)
-    ));
+    final Function function =
+        new FunctionImpl(new Difference(new Module(new Variable("value")), new Constant(8)));
 
     final String result = getResult(function);
 
@@ -96,10 +76,8 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction7() {
     final String expected = "|value| - 8";
-    final Function function = new FunctionImpl(new Difference(
-            new Module(new Variable("value")),
-            new Constant(8)
-    ));
+    final Function function =
+        new FunctionImpl(new Difference(new Module(new Variable("value")), new Constant(8)));
 
     final String result = getResult(function);
 
@@ -110,15 +88,9 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction8() {
     final String expected = "(5 - i) * 8";
-    final Function function = new FunctionImpl(
-            new Product(
-                    new Difference(
-                            new Constant(5),
-                            new Variable("i")
-                    ),
-                    new Constant(8)
-            )
-     );
+    final Function function =
+        new FunctionImpl(
+            new Product(new Difference(new Constant(5), new Variable("i")), new Constant(8)));
 
     final String result = getResult(function);
 

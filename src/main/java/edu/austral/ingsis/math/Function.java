@@ -4,8 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 public interface Function extends Visitable {
-    List<String> getAllVariables();
-    Double compute();
-    Double computeWithValues(Map<String, Double> values);
-    Visitable getRootSymbol();
+  List<String> getAllVariables();
+
+  Double compute();
+
+  Double computeWithValues(Map<String, Double> values);
+
+  Visitable getRootSymbol();
 }
