@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Engine {
+  + formulate(expression: Expression): void
+  + solve(f: Function):
+  + getAll(): Collection<Function>
+  + save(f: Function): void
+}
+
+class MathEngine implements Engine {
+  + formulate(expression: Expression): Function
+  + getAll()
+  + solve()
+}
+
+interface Function {
+  + solve()
+  + evaluate()
+}
+
+interface Expression {
+  + type
+}
+
+class Operation
+
+enum Operators {
+    ADDITION
+    SUBTRACTION
+    MULTIPLICATION
+    DIVISION
+    POWER
+    ROOT
+    MODULE
+}
+
+Expression -> Operators
+
+class Variable
+class Constant
+
+class Operation
+
+@enduml
