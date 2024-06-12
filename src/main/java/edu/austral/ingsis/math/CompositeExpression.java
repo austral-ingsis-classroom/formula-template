@@ -19,7 +19,7 @@ public class CompositeExpression implements Function {
   }
 
   @Override
-  public Function solve(Function function) {
+  public Function solve() {
     return null;
   }
 }
