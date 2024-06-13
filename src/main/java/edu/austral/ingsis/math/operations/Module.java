@@ -18,4 +18,9 @@ public class Module implements Function {
     return new SquareRoot(new CompositeExpression(power))
         .solve();
   }
+
+  @Override
+  public String toString() {
+    return "|" + argument + "|";
+  }
 }

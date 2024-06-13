@@ -15,4 +15,9 @@ public class Power implements Function {
   public Double solve() {
     return Math.pow(argument1.solve(), argument2.solve());
   }
+
+  @Override
+  public String toString() {
+    return argument1.toString() + " ^ " + argument2.toString();
+  }
 }

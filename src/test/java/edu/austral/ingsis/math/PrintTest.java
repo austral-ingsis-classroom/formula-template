@@ -1,5 +1,8 @@
 package edu.austral.ingsis.math;
 
+import edu.austral.ingsis.math.operations.Multiplication;
+import edu.austral.ingsis.math.operations.Subtraction;
+import edu.austral.ingsis.math.operations.Sum;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -11,9 +14,14 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction1() {
     final String expected = "1 + 6";
-    final String result = expected;
+    MathEngine engine = new MathEngine();
+    Function f = new CompositeExpression(
+        new Sum(
+            new Constant(1), new Constant(6)
+        )
+    );
 
-    assertThat(result, equalTo(expected));
+    assertThat(f, equalTo(expected));
   }
 
   /** Case 12 / 2 */
