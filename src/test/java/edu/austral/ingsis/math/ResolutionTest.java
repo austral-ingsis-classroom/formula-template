@@ -1,5 +1,6 @@
 package edu.austral.ingsis.math;
 
+import edu.austral.ingsis.math.operations.Sum;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -11,6 +12,10 @@ public class ResolutionTest {
   @Test
   public void shouldResolveSimpleFunction1() {
     final Double result = 7d;
+    final MathEngine engine = new MathEngine();
+    Function f = engine.formulate(
+        new CompositeExpression(new Sum(new Constant(1), new Constant(6))));
+    Double res = f.solve();
 
     assertThat(result, equalTo(7d));
   }
