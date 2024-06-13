@@ -9,7 +9,7 @@ public class SquareRoot implements Function {
 
   public SquareRoot(Function argument) {
     this.argument = argument;
-    this.power = new Power(argument, new Constant(0.5));
+    this.power = new Power(argument, new Constant("0.5"));
   }
 
   @Override

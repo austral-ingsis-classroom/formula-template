@@ -15,7 +15,7 @@ public class ResolutionTest {
     final Double result = 7d;
     final MathEngine engine = new MathEngine();
     Function f = engine.formulate(
-        new CompositeExpression(new Sum(new Constant(1), new Constant(6))));
+        new CompositeExpression(new Sum(new Constant("1"), new Constant("6"))));
     Double res = f.solve();
 
     assertThat(res, equalTo(7d));
@@ -27,7 +27,7 @@ public class ResolutionTest {
     final Double result = 6d;
     final MathEngine engine = new MathEngine();
     Function f = engine.formulate(
-        new CompositeExpression(new Division(new Constant(12), new Constant(2))));
+        new CompositeExpression(new Division(new Constant("12"), new Constant("2"))));
     Double res = f.solve();
     assertThat(res, equalTo(6d));
   }
@@ -41,9 +41,9 @@ public class ResolutionTest {
         new CompositeExpression(
             new Multiplication(
                 new CompositeExpression(
-                    new Division(new Constant(9), new Constant(2))
+                    new Division(new Constant("9"), new Constant("2"))
                 ),
-                new Constant(3)
+                new Constant("3")
             )
         )
     );
@@ -61,9 +61,9 @@ public class ResolutionTest {
         new CompositeExpression(
             new Power(
                 new CompositeExpression(
-                    new Division(new Constant(27), new Constant(6))
+                    new Division(new Constant("27"), new Constant("6"))
                 ),
-                new Constant(2)
+                new Constant("2")
             )
         )
     );
@@ -80,9 +80,9 @@ public class ResolutionTest {
     Function f = engine.formulate(
         new CompositeExpression(
             new Power(
-                new Constant(36),
+                new Constant("36"),
                 new CompositeExpression(
-                    new Division(new Constant(1), new Constant(2))
+                    new Division(new Constant("1"), new Constant("2"))
                 )
             )
         )
@@ -98,7 +98,7 @@ public class ResolutionTest {
     final Double result = 136d;
     final MathEngine engine = new MathEngine();
     Function f = engine.formulate(
-        new Module(new Constant(136)));
+        new Module(new Constant("136")));
 
     Double res = f.solve();
     assertThat(res, equalTo(result));
@@ -110,7 +110,7 @@ public class ResolutionTest {
     final Double result = 136d;
     final MathEngine engine = new MathEngine();
     Function f = engine.formulate(
-        new Module(new Constant(-136)));
+        new Module(new Constant("-136")));
 
     Double res = f.solve();
 
@@ -127,10 +127,10 @@ public class ResolutionTest {
             new Multiplication(
                 new CompositeExpression(
                     new Subtraction(
-                        new Constant(5), new Constant(5)
+                        new Constant("5"), new Constant("5")
                     )
                 ),
-                new Constant(8)
+                new Constant("8")
             )
         )
     );

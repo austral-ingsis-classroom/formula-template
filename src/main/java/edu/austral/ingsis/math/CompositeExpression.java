@@ -27,4 +27,9 @@ public class CompositeExpression implements Function {
   public Double solve() {
     return argument.solve();
   }
+
+  @Override
+  public String toString() {
+    return "(" + argument.toString() + ")";
+  }
 }

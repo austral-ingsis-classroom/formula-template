@@ -1,7 +1,11 @@
 package edu.austral.ingsis.math;
 
 public class Variable implements Function {
-  private String name;
+  private final String name;
+
+  public Variable(String name) {
+    this.name = name;
+  }
 
   @Override
   public String toString() {

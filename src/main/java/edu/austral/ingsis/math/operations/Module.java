@@ -10,7 +10,7 @@ public class Module implements Function {
 
   public Module(Function argument) {
     this.argument = argument;
-    this.power = new Power(argument, new Constant(2));
+    this.power = new Power(argument, new Constant("2"));
   }
 
   @Override
@@ -21,6 +21,6 @@ public class Module implements Function {
 
   @Override
   public String toString() {
-    return "|" + argument + "|";
+    return "|" + argument.toString() + "|";
   }
 }
