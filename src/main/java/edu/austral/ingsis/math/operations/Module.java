@@ -15,8 +15,7 @@ public class Module implements Function {
 
   @Override
   public Double solve() {
-    return new SquareRoot(new CompositeExpression(power))
-        .solve();
+    return new SquareRoot(new CompositeExpression(power)).solve();
   }
 
   @Override

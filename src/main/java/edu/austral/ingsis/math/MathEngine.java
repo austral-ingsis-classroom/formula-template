@@ -15,14 +15,11 @@ public class MathEngine {
   }
 
   public Function formulate(Function function) {
-    functions.add(function);
+    save(function);
     return function;
   }
 
-  public void printFunctions() {
-    for (Function function : functions) {
-      System.out.println(function);
-    }
+  public List<Function> printFunctions() {
+    return functions;
   }
-
 }
