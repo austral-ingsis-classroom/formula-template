@@ -2,11 +2,11 @@ package edu.austral.ingsis.math.operations;
 
 import edu.austral.ingsis.math.Function;
 
-public class Subtract implements Function {
+public class Subtraction implements Function {
   private final Function argument1;
   private final Function argument2;
 
-  public Subtract(Function argument1, Function argument2) {
+  public Subtraction(Function argument1, Function argument2) {
     this.argument1 = argument1;
     this.argument2 = argument2;
   }
