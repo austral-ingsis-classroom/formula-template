@@ -2,9 +2,7 @@ package edu.austral.ingsis.math.operations;
 
 import edu.austral.ingsis.math.Constant;
 import edu.austral.ingsis.math.Function;
-import edu.austral.ingsis.math.Variable;
-
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SquareRoot implements Function {
@@ -23,10 +21,6 @@ public class SquareRoot implements Function {
 
   @Override
   public List<String> getVariables() {
-    if (argument instanceof Variable) {
-      return List.of(argument.toString());
-    } else {
-      return Collections.emptyList();
-    }
+    return new ArrayList<>(argument.getVariables());
   }
 }

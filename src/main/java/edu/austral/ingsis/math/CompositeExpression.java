@@ -17,7 +17,6 @@ public class CompositeExpression implements Function {
   @Override
   public List<String> getVariables() {
     List<String> variables = argument.getVariables();
-    variables.addAll(argument.getVariables());
     return variables;
   }
 

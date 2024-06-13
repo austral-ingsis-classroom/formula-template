@@ -1,8 +1,6 @@
 package edu.austral.ingsis.math.operations;
 
 import edu.austral.ingsis.math.Function;
-import edu.austral.ingsis.math.Variable;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,12 +21,8 @@ public class Multiplication implements Function {
   @Override
   public List<String> getVariables() {
     List<String> variables = new ArrayList<>();
-    if (argument1 instanceof Variable) {
-      variables.add(argument1.toString());
-    }
-    if (argument2 instanceof Variable) {
-      variables.add(argument2.toString());
-    }
+    variables.addAll(argument1.getVariables());
+    variables.addAll(argument2.getVariables());
     return variables;
   }
 
