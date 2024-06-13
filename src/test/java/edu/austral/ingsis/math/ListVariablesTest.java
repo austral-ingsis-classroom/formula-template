@@ -6,6 +6,9 @@ import static org.hamcrest.Matchers.empty;
 
 import java.util.Collections;
 import java.util.List;
+
+import edu.austral.ingsis.math.operations.Division;
+import edu.austral.ingsis.math.operations.Sum;
 import org.junit.jupiter.api.Test;
 
 public class ListVariablesTest {
@@ -13,15 +16,30 @@ public class ListVariablesTest {
   /** Case 1 + 6 */
   @Test
   public void shouldListVariablesFunction1() {
-    final List<String> result = Collections.emptyList();
+    MathEngine engine = new MathEngine();
+    Function f = engine.formulate(
+        new Sum(
+            new Constant("1"),
+            new Constant("6")
+        )
+    );
 
+    List<String> result = engine.getVariables(f);
     assertThat(result, empty());
   }
 
   /** Case 12 / div */
   @Test
   public void shouldListVariablesFunction2() {
-    final List<String> result = Collections.emptyList();
+    MathEngine engine = new MathEngine();
+    Function f = engine.formulate(
+        new Division(
+            new Constant("12"),
+            new Variable("div")
+        )
+    );
+
+    List<String> result = engine.getVariables(f);
 
     assertThat(result, containsInAnyOrder("div"));
   }

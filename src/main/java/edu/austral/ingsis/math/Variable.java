@@ -1,5 +1,7 @@
 package edu.austral.ingsis.math;
 
+import java.util.List;
+
 public class Variable implements Function {
   private final String name;
   private final double value;
@@ -21,5 +23,10 @@ public class Variable implements Function {
   @Override
   public Double solve() {
     return value;
+  }
+
+  @Override
+  public List<String> getVariables() {
+    return List.of(this.name);
   }
 }

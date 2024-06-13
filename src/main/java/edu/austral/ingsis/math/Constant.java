@@ -1,5 +1,8 @@
 package edu.austral.ingsis.math;
 
+import java.util.Collections;
+import java.util.List;
+
 public class Constant implements Function {
   private final String value;
   private final double parsedValue;
@@ -12,6 +15,11 @@ public class Constant implements Function {
   @Override
   public Double solve() {
     return parsedValue;
+  }
+
+  @Override
+  public List<String> getVariables() {
+    return Collections.emptyList();
   }
 
   @Override

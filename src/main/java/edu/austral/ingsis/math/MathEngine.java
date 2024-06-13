@@ -22,4 +22,8 @@ public class MathEngine {
   public List<Function> printFunctions() {
     return functions;
   }
+
+  public List<String> getVariables(Function function) {
+    return function.getVariables();
+  }
 }

@@ -1,6 +1,10 @@
 package edu.austral.ingsis.math.operations;
 
 import edu.austral.ingsis.math.Function;
+import edu.austral.ingsis.math.Variable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Multiplication implements Function {
   private final Function argument1;
@@ -14,6 +18,18 @@ public class Multiplication implements Function {
   @Override
   public Double solve() {
     return argument1.solve() * argument2.solve();
+  }
+
+  @Override
+  public List<String> getVariables() {
+    List<String> variables = new ArrayList<>();
+    if (argument1 instanceof Variable) {
+      variables.add(argument1.toString());
+    }
+    if (argument2 instanceof Variable) {
+      variables.add(argument2.toString());
+    }
+    return variables;
   }
 
   @Override
