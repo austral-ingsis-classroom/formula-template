@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant "Main" as M
+participant "Function" as F
+participant "BinaryOperation" as BO
+participant "UnaryOperation" as UO
+participant "Variable" as V
+participant "Constant" as C
+
+M -> BO: new Addition(new Constant(1), new Variable("x"))
+activate BO
+BO -> C: new Constant(1)
+activate C
+C --> BO: return
+BO -> V: new Variable("x")
+activate V
+V --> BO: return
+BO --> M: return
+
+M -> BO: evaluate(Map.of("x", 3d))
+activate BO
+BO -> C: evaluate(Map.of("x", 3d))
+activate C
+C --> BO: return 1
+BO -> V: evaluate(Map.of("x", 3d))
+activate V
+V --> BO: return 3
+BO --> M: return 4
+deactivate BO
+deactivate C
+deactivate V
+
+@enduml
