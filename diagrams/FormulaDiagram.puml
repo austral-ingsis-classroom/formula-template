@@ -1,0 +1,91 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Function {
+  +evaluate(): double
+  +getVariables(): List<Variable>
+  +toString(): String;
+}
+
+class Variable implements Function {
+  -name: String
+  +evaluate(): double
+  +getVariables(): List<Variable>
+  +toString(): String;
+}
+
+class Constant implements Function {
+  -value: double
+  +evaluate(): double
+  +getVariables(): List<Variable>
+  +toString(): String;
+}
+
+abstract class BinaryOperation implements Function {
+    -left: Function
+    -right: Function
+    +evaluate(): double
+    +getVariables(): List<Variable>
+    +toString(): String;
+}
+
+abstract class UnaryOperation implements Function {
+    -function: Function
+    +evaluate(): double
+    +getVariables(): List<Variable>
+    +toString(): String;
+}
+
+class Addition extends BinaryOperation {
+    +evaluate(): double
+    +getVariables(): List<Variable>
+    +toString(): String;
+}
+
+class Subtraction extends BinaryOperation {
+    +evaluate(): double
+    +getVariables(): List<Variable>
+    +toString(): String;
+}
+
+class Multiplication extends BinaryOperation {
+    +evaluate(): double
+    +getVariables(): List<Variable>
+    +toString(): String;
+}
+
+class Division extends BinaryOperation {
+    +evaluate(): double
+    +getVariables(): List<Variable>
+    +toString(): String;
+
+}
+
+class elevate extends BinaryOperation {
+    +evaluate(): double
+    +getVariables(): List<Variable>
+    +toString(): String;
+}
+
+class Module extends UnaryOperation {
+    +evaluate(): double
+    +getVariables(): List<Variable>
+    +toString(): String;
+}
+
+class Sqrt extends UnaryOperation {
+    +evaluate(): double
+    +getVariables(): List<Variable>
+    +toString(): String;
+}
+
+class Parenthesis extends UnaryOperation {
+    +evaluate(): double
+    +getVariables(): List<Variable>
+    +toString(): String;
+}
+
+BinaryOperation *-- Function
+UnaryOperation *-- Function
+
+@enduml
