@@ -5,7 +5,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import edu.austral.ingsis.math.operations.*;
 import edu.austral.ingsis.math.operations.Module;
-import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public class PrintTest {
@@ -24,7 +23,6 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction2() {
     final String expected = "12 / 2";
-    MathEngine engine = new MathEngine();
     Function f = new Division(new Constant("12"), new Constant("2"));
     String fun = f.toString();
     assertThat(fun, equalTo(expected));
@@ -63,10 +61,8 @@ public class PrintTest {
     MathEngine engine = new MathEngine();
     Function f =
         engine.formulate(new Subtraction(new Module(new Variable("value")), new Constant("8")));
-    final List<Function> fns = engine.printFunctions();
-    String fun = fns.getFirst().toString();
 
-    assertThat(fun, equalTo(expected));
+    assertThat(f.toString(), equalTo(expected));
   }
 
   /** Case |value| - 8 */
