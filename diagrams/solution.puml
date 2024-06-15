@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class MathEngine {
+  - save(f: Expression)
+  + formulate(f: Expression): Expression
+  + getAll(): Expression[]
+  + solve(): ??
+}
+
+interface Function {
+  + solve(f: Function)
+}
+
+class Operation implements Function {
+  + leftNode: Operator
+  + rightNode: Operator
+}
+
+interface Operator
+
+class Variable implements Operator {
+  + name: String
+}
+
+class Constant implements Operator {
+  + value: double
+}
+
+MathEngine -> Function
+Operation -> Operator
+
+@enduml
