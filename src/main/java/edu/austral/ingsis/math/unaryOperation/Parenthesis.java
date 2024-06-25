@@ -7,7 +7,8 @@ public class Parenthesis extends UnaryOperation {
     super(function);
   }
 
-  @Override public String toString() {
+  @Override
+  public String toString() {
     return "(" + getFunction().toString() + ")";
   }
 }

@@ -18,7 +18,7 @@ public abstract class BinaryOperation implements Function {
   }
 
   public Function getRight() {
-      return right;
+    return right;
   }
 
   @Override
