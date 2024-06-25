@@ -11,15 +11,13 @@ public abstract class UnaryOperation implements Function {
     this.function = function;
   }
 
+  public Function getFunction() {
+    return this.function;
+  }
+
   @Override
   public double evaluate(Map<String, Double> values) {
-    if (this instanceof Sqrt) {
-      return Math.sqrt(function.evaluate(values));
-    } else if (this instanceof Module) {
-      return Math.abs(function.evaluate(values));
-    } else { // if (this instanceof Parenthesis)
-      return function.evaluate(values);
-    }
+    return function.evaluate(values);
   }
 
   @Override
@@ -29,12 +27,6 @@ public abstract class UnaryOperation implements Function {
 
   @Override
   public String toString() {
-    if (this instanceof Sqrt) {
-      return "sqrt(" + function.toString() + ")";
-    } else if (this instanceof Module) {
-      return "|" + function.toString() + "|";
-    } else { // if (this instanceof Parenthesis)
-      return "(" + function.toString() + ")";
-    }
+    return "";
   }
 }

@@ -13,19 +13,17 @@ public abstract class BinaryOperation implements Function {
     this.right = right;
   }
 
+  public Function getLeft() {
+    return left;
+  }
+
+  public Function getRight() {
+      return right;
+  }
+
   @Override
   public double evaluate(Map<String, Double> values) {
-    if (this instanceof Addition) {
-      return left.evaluate(values) + right.evaluate(values);
-    } else if (this instanceof Subtraction) {
-      return left.evaluate(values) - right.evaluate(values);
-    } else if (this instanceof Division) {
-      return left.evaluate(values) / right.evaluate(values);
-    } else if (this instanceof Multiplication) {
-      return left.evaluate(values) * right.evaluate(values);
-    } else { // if (this instanceof Elevate)
-      return Math.pow(left.evaluate(values), right.evaluate(values));
-    }
+    return 0;
   }
 
   @Override
@@ -36,16 +34,6 @@ public abstract class BinaryOperation implements Function {
 
   @Override
   public String toString() {
-    if (this instanceof Addition) {
-      return left.toString() + " + " + right.toString();
-    } else if (this instanceof Subtraction) {
-      return left.toString() + " - " + right.toString();
-    } else if (this instanceof Division) {
-      return left.toString() + " / " + right.toString();
-    } else if (this instanceof Multiplication) {
-      return left.toString() + " * " + right.toString();
-    } else { // if (this instanceof Elevate)
-      return left.toString() + " ^ " + right.toString();
-    }
+    return "";
   }
 }
